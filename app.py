@@ -4,7 +4,7 @@ from database import get_db
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.urandom(24)  # generate 24 random caracters
+app.config['SECRET_KEY'] = b'\xe0\x95\x11\xf8\xda\xfc0\xdag\x19\x11\x8c\x1ahu\xcaU\x8eh\xc4\x8bC\xf6\xfd'
 
 
 @app.teardown_appcontext
