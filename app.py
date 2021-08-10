@@ -6,6 +6,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)  # generate 24 random caracters
 
+init_db()
+
 
 @app.teardown_appcontext
 def close_db(error):
@@ -210,6 +212,4 @@ def logout():
 
 
 if __name__ == '__main__':
-
-    init_db()
     app.run(debug=True)
