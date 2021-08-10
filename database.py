@@ -1,10 +1,8 @@
 import sqlite3
 import os
-import click
 import psycopg2
 from psycopg2.extras import DictCursor
 from flask import g
-from flask.cli import with_appcontext
 
 
 class DatabaseConnection:
@@ -38,13 +36,3 @@ def get_db():
         g.postgres_db_cur = db[1]
 
     return g.postgres_db_cur
-
-
-@click.command(name='create_db')
-@with_appcontext
-def init_db():
-    db = get_db()
-    db[1].execute(open('schema.sql', 'r').read())
-    db[1].close()
-
-    db[0].close()
