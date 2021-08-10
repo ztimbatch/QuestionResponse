@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, request, g, session, url_for, redirect
-from database import get_db
+from database import get_db, init_db
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
@@ -210,4 +210,6 @@ def logout():
 
 
 if __name__ == '__main__':
+
+    init_db()
     app.run(debug=True)
